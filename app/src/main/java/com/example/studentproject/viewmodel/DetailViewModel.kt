@@ -15,12 +15,17 @@ import com.example.studentproject.model.Student
 class DetailViewModel(application: Application): AndroidViewModel(application) {
     val studentLD = MutableLiveData<Student>()
     val Tag: String="volley Tag"
+    val errorLD = MutableLiveData<Boolean>()
     var queue: RequestQueue?=null
 
     fun fetch(student: Student) {
         queue = Volley.newRequestQueue(getApplication())
         val url = "https://www.jsonkeeper.com/b/LLmW"
-        val stringRequest = StringRequest(Request.Method.GET, url, {},{})
+        errorLD.value=false
+        val stringRequest = StringRequest(Request.Method.GET, url, {},{Log.d("volley_status",
+        it.message.toString())
+        errorLD.value=true
+        })
         stringRequest.tag = Tag
         queue?.add(stringRequest)
 //        val student1 = Student(
