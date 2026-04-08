@@ -16,6 +16,7 @@ import com.google.gson.reflect.TypeToken
 
 class DetailViewModel(application: Application): AndroidViewModel(application) {
     val studentLD = MutableLiveData<Student>()
+
     val Tag: String="volley Tag"
     val errorLD = MutableLiveData<Boolean>()
     var queue: RequestQueue?=null
