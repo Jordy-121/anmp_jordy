@@ -24,6 +24,7 @@ class DetailViewModel(application: Application): AndroidViewModel(application) {
         errorLD.value=false
         val stringRequest = StringRequest(Request.Method.GET, url, {},{Log.d("volley_status",
         it.message.toString())
+
         errorLD.value=true
         })
         stringRequest.tag = Tag
